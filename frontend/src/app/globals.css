@@ -1,0 +1,37 @@
+
+.pred-video {
+    max-width: 85%;
+    max-height: 85%;
+    position: 'center';
+    border: none;
+    border-radius: 25%;
+}
+.icon-button {
+    width: 65px; /* Ajusta el tamaño según tus necesidades */
+    height: 65px; /* Ajusta el tamaño según tus necesidades */
+    border: none;
+    border-radius: 50%;
+    background-color: black; /* Color de fondo del botón */
+    margin: 8px; /* Ajusta el margen según tus necesidades */
+    cursor: pointer;
+}
+  
+.icon-button:disabled {
+    background-color: gray; /* Color de fondo cuando está deshabilitado */
+    color: #ccc; /* Color del texto cuando está deshabilitado */
+    cursor: not-allowed; /* Cambia el cursor a 'no permitido' cuando está deshabilitado */
+}
+
+.icon {
+    color: white; /* Color del icono */
+    justify-content: center;
+    text-align: center;
+}
+
+.pred-text {
+    font-weight: bold; /* Añade negrita al texto */
+    font-size: larger;
+    margin-top: 10px; /* Espaciado superior */
+  }
+  
+  
