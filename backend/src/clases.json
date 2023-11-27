@@ -1,4 +1,20 @@
 {
-    "caracteristicas": ["mango", "manzana", "naranja", "platano"]
+    "caracteristicas": ["frutilla", 
+                        "frutilla inmadura", 
+                        "frutilla mal estado", 
+                        "mango", 
+                        "mango inmaduro", 
+                        "mango mal estado", 
+                        "manzana", 
+                        "manzana mal estado", 
+                        "manzana verde", 
+                        "manzana verde mal estado", 
+                        "papaya", 
+                        "papaya inmadura", 
+                        "papaya mal estado", 
+                        "plátano", 
+                        "plátano inmaduro", 
+                        "plátano mal estado"
+                        ]
 }
   
