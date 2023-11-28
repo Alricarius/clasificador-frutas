@@ -2,13 +2,21 @@ const tf = require("@tensorflow/tfjs-node");
 const clases = require('../clases.json');
 
 const diccionario = clases.caracteristicas;
-const IMG_WIDTH = 224;
-const IMG_HEIGHT = 224;
+const IMG_WIDTH = 100;
+const IMG_HEIGHT = 100;
 const SCALA = 255;
 const RGB = 3;
 
+class L2 {
+    static className = 'L2';
+    constructor(config) {
+       return tf.regularizers.l1l2(config)
+    }
+}
+
 class ImageClassifier {
     constructor(modelPath) {
+        tf.serialization.registerClass(L2);
         this.loadModel(modelPath);
     }
 
