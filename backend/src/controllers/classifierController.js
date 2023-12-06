@@ -12,7 +12,10 @@ class ClassifierController {
             const finalPath = path.join(__dirname, '../../', 'uploads', path.basename(imagePath));
             const imageBuffer = fs.readFileSync(finalPath);
             const predictions = await imageClassifier.classifyImage(imageBuffer);
-            res.json({ prediction: predictions });
+            res.json({ prediccion: predictions.clase,
+                       confianza: predictions.confianza,
+                       tiempoInferencia: predictions.tiempoInferencia 
+                    });
         };
     }
 }

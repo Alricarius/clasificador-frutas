@@ -42,10 +42,21 @@ class ImageClassifier {
             if (!predictions) {
                 console.error('Las predicciones no son un tensor válido:', predictions);
             } else {
+                const startTime = performance.now();
                 const classPredicted = tf.argMax(predictions, 1).arraySync()[0];
                 const predictedClass = diccionario[classPredicted];
-    
-                return predictedClass;
+                 // Normalizar los valores de predicción
+                const normalizedPredictions = tf.div(predictions, tf.sum(predictions)).arraySync();
+                // Obtener el porcentaje de confianza de la clase predicha
+                const nivel_confianza = Math.round(normalizedPredictions[0][classPredicted] * 100);
+                // Devolver la clase predicha y el porcentaje de confianza
+                const endTime = performance.now();
+                const inferenceTime = endTime - startTime;
+                return { 
+                    clase: predictedClass, 
+                    confianza: nivel_confianza, 
+                    tiempoInferencia: inferenceTime
+                };
             }
         } catch (error) {
             console.error('Error al clasificar la imagen:', error);
