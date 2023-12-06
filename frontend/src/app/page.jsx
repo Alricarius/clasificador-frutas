@@ -5,6 +5,7 @@ import { FaCamera, FaMicrophone, FaStop } from 'react-icons/fa';
 const Home = () => {
   const videoRef = useRef();
   const [prediction, setPrediction] = useState('Clasificando...');
+  const [confianza, setConfianza] = useState('Calculando...');
   const [voiceRecognitionActive, setVoiceRecognitionActive] = useState(false);
   let recognitionInstance = '';
 
@@ -89,8 +90,10 @@ const Home = () => {
       });
       const data = await response.json();
       console.log('Clasificación:', data.prediction);
-      setPrediction(data.prediction);
-      speakText(`${data.prediction}`);
+      setPrediction(data.prediccion);
+      console.log('Nivel de Confianza:', data.confianza);
+      setConfianza(`${data.confianza}%.`);
+      speakText(`${data.prediccion} con un ${data.confianza} % de confianza.`);
     } catch (error) {
       console.error('Error al enviar la imagen a la API:', error);
     }
@@ -105,7 +108,7 @@ const Home = () => {
 
   return (
     <div style={{ textAlign: 'center' }}>
-      <h1>Clasificación de Imágenes en Tiempo Real</h1>
+      <h1>Clasificación de Imágenes de Frutas Según su Madurez</h1>
       <video
         ref={videoRef}
         autoPlay
@@ -115,6 +118,9 @@ const Home = () => {
       />
       <p>
       {prediction && <label className='pred-text'>Predicción: {prediction}</label>}
+      </p>
+      <p>
+      {confianza && <label className='pred-text'>Nivel de Confianza: {confianza}</label>}
       </p>
       <button className="icon-button" onClick={captureImage} disabled={voiceRecognitionActive}>
         <FaCamera className="icon" size={35} />

@@ -31,7 +31,12 @@
 .pred-text {
     font-weight: bold; /* Añade negrita al texto */
     font-size: larger;
-    margin-top: 10px; /* Espaciado superior */
-  }
+    margin-top: 5px; /* Espaciado superior */
+}
+
+p {
+    padding: 0;
+    margin: 0;
+}
   
   
